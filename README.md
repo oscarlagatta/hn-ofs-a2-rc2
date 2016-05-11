@@ -1,7 +1,7 @@
-# Angular 2 Seed Project
+# Angular 2 RC Project
 
 ## Description
-This repository has the goal of making seeding an Angular 2 project easy. Currently it's in heavy development, as Angular 2 isn't released yet.
+This repository has the goal of making seeding an Angular 2 RC2 project easy. Currently it's in heavy development, as Angular 2 isn't released yet.
 
 ## Features
 dev/ folder holds TypeScript (Angular 2) code => compiled into app/ folder, bundled into bundle.js (incl. dependencies).
