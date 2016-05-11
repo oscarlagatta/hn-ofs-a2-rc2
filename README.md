@@ -15,7 +15,7 @@ Important: Typescript and npm has to be installed on your machine!
 
 1: Clone repo
 ```
-git clone https://github.com/mschwarzmueller/angular2-seed.git
+git clone 
 ```
 2: Install packages
 ```
