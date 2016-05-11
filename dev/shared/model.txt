@@ -1,0 +1,37 @@
+ORDER LINE
+**********
+public int OFSOrderLineID { get; set; }
+
+public int OFSOrderID { get; set; }
+
+public int OrderLineID { get; set; }
+
+public int Sku { get; set; }
+
+public decimal SalesTaxRate { get; set; }
+
+public int Quantity { get; set; }
+
+public string Description { get; set; }
+
+public decimal UnitNetPrice { get; set; }
+
+public decimal Tax { get; set; }
+
+ORDER 
+*****
+public int OFSOrderID { get; set; }
+
+public int OrderID { get; set; }
+
+public int GroupOrderNumber { get; set; }
+
+public string FirstName { get; set; }
+
+public string SecondName { get; set; }
+
+public DateTime OrderDate { get; set; }
+
+public int DeliveryServiceID { get; set; }
+
+public ICollection<OrderLine> OrderLines { get; set; }

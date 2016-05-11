@@ -1,0 +1,62 @@
+<div  *ngIf="order == null">
+    <h3>Please select an Order or Create a new Order</h3>
+</div>
+<div  *ngIf="order != null">
+    
+    <h1>{{order.ofsOrderID}}</h1>
+    <span><a (click)="onEdit()" class="btn btn-primary">Edit</a> | <a (click)="onDelete()" class="btn btn-danger">Delete</a></span>
+    <!--div class="img-responsive">
+        <img [src]="order.image">
+    </div-->
+    <div class='table-responsive' style="margin-top: 30px!important">
+        <table class='table table-hover table-stripped table-condensed'>
+            <thead>
+                    <tr>
+                        <th>OFS Order ID</th>
+                        <th>Customer</th>
+                        <th>Order Date</th>
+                    </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>{{order.ofsOrderId}}</td>
+                    <td>{{order.firstName}}, {{order.secondName}}</td>
+                    <td>{{order.orderDate}}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    
+    
+    
+    <div class="">
+        <a (click)="onAddToOrderList()" class="btn btn-success">Add all to the Order List</a>
+        <!--ul class="row">
+            <li *ngFor="#orderLine of order.orderLines">{{orderLine.description}} ({{orderLine.unitNetPrice}})</li>
+        </ul-->
+    </div>
+    
+    <div class='table-responsive' style="margin-top: 30px!important">
+            <table class='table table-hover table-stripped table-condensed' *ngIf='order.orderLines && order.orderLines.length'>
+                <thead>
+                    <tr>
+                        <th>Product Description</th>
+                        <th>Unit Price</th>
+                        <th>Image</th>
+                        <th>Quantity</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="#orderLine of order.orderLines" (click)="onSelect(order)">
+                        <td valign="middle">{{ orderLine.description}}</td>
+                        <td>{{ orderLine.unitNetPrice}}</td>
+                        <td> <img class="img-responsive img-rounded" [src]="orderLine.image" alt="Order Line"></td>
+                        <td>{{ orderLine.quantity}}</td>
+                    </tr>
+                </tbody>
+            
+            </table>
+        
+    </div>
+    
+</div>

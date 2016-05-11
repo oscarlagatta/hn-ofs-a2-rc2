@@ -1,0 +1,54 @@
+<!doctype>
+<html>
+<head>
+    <base href="/">
+    <title>Harvey Nichols</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Load libraries -->
+    <!-- IE required polyfills, in this exact order -->
+    <script src="node_modules/es6-shim/es6-shim.min.js"></script>
+    <script src="node_modules/systemjs/dist/system-polyfills.js"></script>
+    <script src="node_modules/angular2/es6/dev/src/testing/shims_for_IE.js"></script>
+    <script src="node_modules/angular2/bundles/angular2-polyfills.js"></script>
+    <script src="node_modules/systemjs/dist/system.src.js"></script>
+    <script src="node_modules/rxjs/bundles/Rx.js"></script>
+    <script src="node_modules/angular2/bundles/angular2.js"></script>
+    <script src="node_modules/angular2/bundles/router.dev.js"></script>
+    <script src="node_modules/angular2/bundles/http.js"></script>
+
+    <script src="node_modules/angular2/bundles/http.dev.js"></script>
+     <!--Typekit font Futura-pt-->
+    <script src="https://use.typekit.net/bzx0htb.js"></script>
+    <script>try{Typekit.load({ async: true });}catch(e){}</script>
+    <!--end Typekit font Futura-pt-->
+
+    <!--Font awesome css -->
+    <link href="src/css/font-awesome.min.css" rel="stylesheet" />
+    <!--Bootstrap styling and typeahead -->
+    <link rel="stylesheet" href="src/css/bootstrap.min.css">
+    <link href="src/css/typeahead.js-bootstrap.css" rel="stylesheet" />
+    <!--end Bootstrap styling -->
+    <link rel="stylesheet" href="src/css/app.css">
+    
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    
+    <script src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+</head>
+<body>
+<my-app>Loading...</my-app>
+
+<script>
+    System.config({
+        packages: {
+            app: {
+                format: 'register',
+                defaultExtension: 'js'
+            }
+        }
+    });
+    System.import('app/boot')
+            .then(null, console.error.bind(console));
+</script>
+</body>
+</html>

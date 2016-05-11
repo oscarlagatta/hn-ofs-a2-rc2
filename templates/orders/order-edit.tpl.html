@@ -1,0 +1,98 @@
+<div>
+    <form [ngFormModel]="editForm" (ngSubmit)="onSubmit()" #f="ngForm" role="form">
+        <span><button type="submit" class="btn btn-primary" [disabled]="!f.valid">Save</button></span>
+        <span><a class="btn btn-info" (click)="onCancel()">Cancel</a></span>
+        <div class="form-group form-group-sm">
+            <label for="ofsOrderId col-sm-2">OFS Order ID</label>
+            <input [ngFormControl]="editForm.controls['ofsOrderId']" type="text" class="form-control input-sm col-sm-10" id="ofsOrderId" placeholder="OFS Order Id">
+        </div>
+        
+       <div class="form-group form-group-sm">
+            <label for="orderId">Order ID</label>
+            <input [ngFormControl]="editForm.controls['orderId']" type="text" class="form-control" id="orderId" placeholder="Order Id">
+        </div>
+        <div class="form-group form-group-sm">
+            <label for="groupOrderNumber">Group Order Number</label>
+            <input [ngFormControl]="editForm.controls['groupOrderNumber']" type="text" class="form-control input-sm" id="groupOrderNumber" placeholder="Group Order Number">
+        </div>
+        <div class="form-group form-group-sm">
+            <label for="firstName">First Name</label>
+            <input [ngFormControl]="editForm.controls['firstName']" type="text" class="form-control input-sm" id="firstName" placeholder="First Name">
+        </div>
+        <div class="form-group form-group-sm">
+            <label for="secondName">Second Name</label>
+            <input [ngFormControl]="editForm.controls['secondName']" type="text" class="form-control  input-sm" id="secondName" placeholder="Second Name">
+        </div>
+        <div class="form-group form-group-sm">
+            <label for="orderDate">Order Date</label>
+            <input [ngFormControl]="editForm.controls['orderDate']" type="text" class="form-control  input-sm" id="orderDate" placeholder="Order Date">
+        </div>
+        <div class="form-group form-group-sm">
+            <label for="deliveryServiceId">Delivery Service</label>
+            <input [ngFormControl]="editForm.controls['deliveryServiceId']" type="text" class="form-control  input-sm" id="deliveryServiceId" placeholder="">
+        </div>
+        
+        <div class="panel panel-default">
+                    <div class="panel-heading">
+                        Order Lines
+                    </div>
+                    <div class="panel-body">
+                        <ul class="list-group">
+                        <li class="list-group-item" *ngFor="#item of editForm.controls['orderLines'].controls; #i = index">
+                            <div class="form-group form-group-sm">
+                                <label for="deliveryServiceId">Description</label>
+                                <input type="text" class="form-control  input-sm" [ngFormControl]="item.controls['description']">
+                            </div>
+                            <div class="form-group form-group-sm">
+                                <label for="deliveryServiceId">Unit Price</label>
+                                <input type="text" class="form-control  input-sm" [ngFormControl]="item.controls['unitNetPrice']">
+                            </div>
+                            <div class="form-group form-group-sm">
+                                <label for="deliveryServiceId">Image Url</label>
+                                <input type="text" class="form-control  input-sm" [ngFormControl]="item.controls['image']">
+                            </div>
+                            <div class="form-group form-group-sm">
+                                <label for="deliveryServiceId">Quantity</label>
+                                <input type="text" class="form-control  input-sm" [ngFormControl]="item.controls['quantity']">
+                            </div>
+                            <a class="btn btn-danger" (click)="onRemoveLine(i)">Delete Order Line</a>  <!--onRemoveItem-->
+                
+            </li>
+        </ul>
+                    </div>
+        </div>
+        
+        <!--List of Order Lines-->
+        
+    </form>
+    <hr>
+    <div class="panel panel-default">
+        <div class="panel-heading">
+           Add Product
+        </div>
+        <div class="panel-body">
+            <div class="form-group">
+                <div class="form-group form-group-sm">
+                    <label for="deliveryServiceId">Description</label>
+                    <input type="text" class="form-control" #orderLineDescription>
+                </div>
+                <div class="form-group form-group-sm">
+                    <label for="deliveryServiceId">Unit Price</label>
+                    <input type="text" class="form-control" #orderLineUnitNetPrice>
+                </div>
+                <div class="form-group form-group-sm">
+                    <label for="deliveryServiceId">Image Url</label>
+                    <input type="text" class="form-control" #orderLineImage>
+                </div>
+                <div class="form-group form-group-sm">
+                    <label for="deliveryServiceId">Quantity</label>
+                    <input type="text" class="form-control" #orderLineQuantity>
+                </div>
+                <a class="btn btn-primary" (click)="onAddLine(orderLineDescription.value, orderLineUnitNetPrice.value, orderLineImage.value, orderLineQuantity.value)">Add New Product to the Order</a>  <!--onRemoveItem-->
+            </div>
+       </div>
+    </div>
+    
+   
+</div> <!--container-->
+
